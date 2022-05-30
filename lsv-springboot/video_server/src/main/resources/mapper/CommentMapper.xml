@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hdiata.mapper.CommentMapper">
+
+    <select id="listComments" resultType="com.hdiata.pojo.dto.CommentDTO">
+        SELECT
+        u.nickname,
+        u.avatar,
+        c.user_id,
+        c.id,
+        c.comment_content,
+        c.gmt_create
+        FROM
+        comment c
+        JOIN user_info u ON c.user_id = u.id
+        WHERE
+            video_id = #{commentVO.videoId}
+        AND c.is_review = 1
+        AND parent_id IS NULL
+        ORDER BY
+        c.id DESC
+        LIMIT #{current}, #{size}
+    </select>
+
+    <select id="listReplies" resultType="com.hdiata.pojo.dto.ReplyDTO">
+        SELECT
+        *
+        FROM
+        (
+        SELECT
+        c.user_id,
+        u.nickname,
+        u.avatar,
+        c.reply_user_id,
+        r.nickname AS reply_nickname,
+        c.id,
+        c.parent_id,
+        c.comment_content,
+        c.gmt_create,
+        row_number () over ( PARTITION BY parent_id ORDER BY gmt_create ASC ) row_num
+        FROM
+        comment c
+        JOIN user_info u ON c.user_id = u.id
+        JOIN user_info r ON c.reply_user_id = r.id
+        WHERE
+        c.is_review = 1
+        AND
+        parent_id IN
+        (
+        <foreach collection="commentIdList" item="commentId" separator=",">
+            #{commentId}
+        </foreach>
+        )
+        ) t
+        WHERE
+        4 > row_num
+    </select>
+
+    <select id="listReplyCountByCommentId" resultType="com.hdiata.pojo.dto.ReplyCountDTO">
+        SELECT
+        parent_id as comment_id,
+        count(1) AS reply_count
+        FROM
+        comment
+        WHERE
+        is_review = 1
+        AND
+        parent_id IN
+        <foreach open="(" collection="commentIdList" item="commentId" separator="," close=")">
+            #{commentId}
+        </foreach>
+        GROUP BY
+        parent_id
+    </select>
+
+    <select id="countComment" resultType="java.lang.Integer">
+        SELECT
+        count( 1 )
+        FROM
+        comment c
+        LEFT JOIN user_info u ON c.user_id = u.id
+        <where>
+            <if test="condition.isReview != null">
+                c.is_review = #{condition.isReview}
+            </if>
+            <if test="condition.keywords != null">
+                and u.nickname like concat('%', #{condition.keywords}, '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="listRepliesByCommentId" resultType="com.hdiata.pojo.dto.ReplyDTO">
+        SELECT
+            c.user_id,
+            u.nickname,
+            u.avatar,
+            c.reply_user_id,
+            r.nickname as reply_nickname,
+            c.id,
+            c.parent_id,
+            c.comment_content,
+            c.gmt_create
+        FROM
+            comment c
+                JOIN user_info u ON c.user_id = u.id
+                JOIN user_info r ON c.reply_user_id = r.id
+        WHERE
+            c.is_review = 1
+          AND
+            parent_id =#{commentId}
+        ORDER BY
+            c.id ASC
+        LIMIT #{current}, #{size}
+    </select>
+
+    <select id="listCommentBack" resultType="com.hdiata.pojo.dto.CommentBackDTO">
+        SELECT
+        c.id,
+        u.avatar,
+        u.nickname,
+        r.nickname reply_nickname,
+        v.video_name,
+        c.comment_content,
+        c.type,
+        c.gmt_create,
+        c.is_review
+        FROM
+        comment c
+        LEFT JOIN video v ON c.video_id = v.id
+        LEFT JOIN user_info u ON c.user_id = u.id
+        LEFT JOIN user_info r ON c.reply_user_id = r.id
+        <where>
+            <if test="condition.type != null">
+                c.type = #{condition.type}
+            </if>
+            <if test="condition.isReview != null">
+                and c.is_review = #{condition.isReview}
+            </if>
+            <if test="condition.keywords != null">
+                and u.nickname like concat('%', #{condition.keywords}, '%')
+            </if>
+        </where>
+        ORDER BY
+        id DESC
+        LIMIT #{current}, #{size}
+    </select>
+
+</mapper>

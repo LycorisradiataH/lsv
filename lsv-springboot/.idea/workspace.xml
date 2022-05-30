@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9d7d90ba-0026-414a-a403-24282ada6730" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
+        <option name="userSettingsFile" value="D:\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
+    <option name="vmOptions" value="-DarchetypeCatalog=internal" />
+  </component>
+  <component name="ProjectId" id="25SUoMrmOCH8bJmPlHBAhCMdbFK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/video_server/src/main/resources" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.hdiata.pojo.vo" />
+      <recent name="com.hdiata.pojo.dto" />
+      <recent name="com.hdiata.common.strategy.impl" />
+      <recent name="com.hdiata.mapper" />
+      <recent name="com.hdiata.service.impl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IntelliJ IDEAProjects\lsv\video_server\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VideoServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="video_server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hdiata.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hdiata.VideoServerApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.VideoServerApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d7d90ba-0026-414a-a403-24282ada6730" name="Default Changelist" comment="" />
+      <created>1645520155209</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1645520155209</updated>
+      <workItem from="1645520161634" duration="902000" />
+      <workItem from="1645857413902" duration="14646000" />
+      <workItem from="1645940037138" duration="18231000" />
+      <workItem from="1646030423182" duration="1619000" />
+      <workItem from="1646203570906" duration="5900000" />
+      <workItem from="1647050449159" duration="2271000" />
+      <workItem from="1647053479942" duration="3781000" />
+      <workItem from="1647135900307" duration="6564000" />
+      <workItem from="1647222895426" duration="6327000" />
+      <workItem from="1647350617974" duration="565000" />
+      <workItem from="1647357640190" duration="335000" />
+      <workItem from="1647411139929" duration="13213000" />
+      <workItem from="1647505014956" duration="2556000" />
+      <workItem from="1647509270169" duration="1036000" />
+      <workItem from="1647588807179" duration="7518000" />
+      <workItem from="1647764877776" duration="6170000" />
+      <workItem from="1647910447242" duration="7820000" />
+      <workItem from="1647937538462" duration="3144000" />
+      <workItem from="1648018560544" duration="2681000" />
+      <workItem from="1648089792335" duration="1960000" />
+      <workItem from="1648106810557" duration="3808000" />
+      <workItem from="1648194216914" duration="7202000" />
+      <workItem from="1648213156853" duration="627000" />
+      <workItem from="1648365622172" duration="957000" />
+      <workItem from="1648622564510" duration="17610000" />
+      <workItem from="1648689604883" duration="20299000" />
+      <workItem from="1648796724079" duration="1481000" />
+      <workItem from="1648823910877" duration="161000" />
+      <workItem from="1649422170765" duration="1453000" />
+      <workItem from="1649427409965" duration="2528000" />
+      <workItem from="1649482058582" duration="2510000" />
+      <workItem from="1649560706011" duration="661000" />
+      <workItem from="1649752354247" duration="787000" />
+      <workItem from="1650603511592" duration="41000" />
+      <workItem from="1650614112913" duration="85000" />
+      <workItem from="1650764219125" duration="13351000" />
+      <workItem from="1650852900200" duration="5361000" />
+      <workItem from="1650939560523" duration="3679000" />
+      <workItem from="1651030581687" duration="738000" />
+      <workItem from="1651122300681" duration="142000" />
+      <workItem from="1651299483385" duration="4002000" />
+      <workItem from="1651472064696" duration="4667000" />
+      <workItem from="1651480714836" duration="45000" />
+      <workItem from="1651482288735" duration="426000" />
+      <workItem from="1651485512117" duration="30000" />
+      <workItem from="1651492131847" duration="326000" />
+      <workItem from="1651731093574" duration="1048000" />
+      <workItem from="1651732951682" duration="1073000" />
+      <workItem from="1651734211913" duration="1358000" />
+      <workItem from="1651735805850" duration="102000" />
+      <workItem from="1651736089694" duration="106000" />
+      <workItem from="1651736645041" duration="505000" />
+      <workItem from="1651930504491" duration="4857000" />
+      <workItem from="1651969050162" duration="1167000" />
+      <workItem from="1653381881508" duration="7357000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="202" y="36" width="1176" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1647056562354">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="202" y="36" width="1176" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1647056562354" />
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1647592467903">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1647592467903" />
+    <state x="393" y="340" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1647592760533">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="393" y="340" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1536.834@0.0.1536.834" timestamp="1647592760533" />
+    <state x="299" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1648711846664">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="299" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.834@0.0.1536.834" timestamp="1648711846664" />
+    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1650939627966">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1650939627966" />
+    <state x="499" y="164" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1650769438888">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="164" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.834@0.0.1536.834" timestamp="1650769438888" />
+    <state width="1493" height="215" key="GridCell.Tab.0.bottom" timestamp="1651737154674">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="215" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1651737154674" />
+    <state width="1493" height="215" key="GridCell.Tab.0.center" timestamp="1651737154674">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="215" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1651737154674" />
+    <state width="1493" height="215" key="GridCell.Tab.0.left" timestamp="1651737154674">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="215" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1651737154674" />
+    <state width="1493" height="215" key="GridCell.Tab.0.right" timestamp="1651737154674">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="215" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1651737154674" />
+    <state width="1493" height="215" key="GridCell.Tab.1.bottom" timestamp="1651735535541">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="215" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1651735535541" />
+    <state width="1493" height="215" key="GridCell.Tab.1.center" timestamp="1651735535541">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="215" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1651735535541" />
+    <state width="1493" height="215" key="GridCell.Tab.1.left" timestamp="1651735535540">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="215" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1651735535540" />
+    <state width="1493" height="215" key="GridCell.Tab.1.right" timestamp="1651735535541">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="215" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1651735535541" />
+    <state width="1493" height="280" key="GridCell.Tab.2.bottom" timestamp="1647952027499">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="280" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1647952027499" />
+    <state width="1493" height="280" key="GridCell.Tab.2.center" timestamp="1647952027499">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="280" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1647952027499" />
+    <state width="1493" height="280" key="GridCell.Tab.2.left" timestamp="1647952027499">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="280" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1647952027499" />
+    <state width="1493" height="280" key="GridCell.Tab.2.right" timestamp="1647952027499">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="280" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1647952027499" />
+    <state x="270" y="62" key="SettingsEditor" timestamp="1647942988741">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="270" y="62" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1647942988741" />
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup" timestamp="1650853677859">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup/0.0.1536.834@0.0.1536.834" timestamp="1650853677859" />
+    <state x="349" y="72" key="com.intellij.database.dbimport.ImportDialog" timestamp="1648711333758">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="349" y="72" key="com.intellij.database.dbimport.ImportDialog/0.0.1536.834@0.0.1536.834" timestamp="1648711333758" />
+    <state x="178" y="78" key="new project wizard" timestamp="1645520510629">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="178" y="78" key="new project wizard/0.0.1536.834@0.0.1536.834" timestamp="1645520510629" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1650853709962">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1650853709962" />
+  </component>
+</project>

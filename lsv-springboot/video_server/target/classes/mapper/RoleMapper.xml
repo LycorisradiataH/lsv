@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hdiata.mapper.RoleMapper">
+
+    <select id="listResourceRoles" resultMap="RolePermissionMap">
+        SELECT
+        re.id,
+        url,
+        request_method,
+        role_label
+        FROM
+        resource re
+        LEFT JOIN role_resource rr ON re.id = rr.resource_id
+        LEFT JOIN role r ON rr.role_id = r.id
+        WHERE
+        is_anonymous = 0
+        AND parent_id is NOT NULL
+    </select>
+
+    <select id="listRoles" resultMap="RoleMap">
+        SELECT
+        r.id,
+        role_name,
+        role_label,
+        r.is_disable,
+        r.gmt_create,
+        rr.resource_id,
+        rm.menu_id
+        FROM
+        (
+        SELECT
+        id,
+        role_name,
+        role_label,
+        is_disable,
+        gmt_create
+        FROM
+        role
+        <where>
+            <if test="condition.keywords != null ">
+                role_name like concat('%', #{condition.keywords}, '%')
+            </if>
+        </where>
+        LIMIT #{current}, #{size}
+        ) r
+        LEFT JOIN role_resource rr ON r.id = rr.role_id
+        LEFT JOIN role_menu rm on r.id = rm.role_id
+        ORDER BY r.id
+    </select>
+
+    <select id="listRolesByUserInfoId" resultType="java.lang.String">
+        SELECT
+            role_label
+        FROM
+            role r,
+            user_role ur
+        WHERE
+            r.id = ur.role_id
+          AND ur.user_id = #{userInfoId}
+    </select>
+
+    <resultMap id="RolePermissionMap" type="com.hdiata.pojo.dto.ResourceRoleDTO">
+        <id column="id" property="id"/>
+        <result column="url" property="url"/>
+        <result column="request_method" property="requestMethod"/>
+        <collection property="roleList" ofType="java.lang.String">
+            <constructor>
+                <arg column="role_label"/>
+            </constructor>
+        </collection>
+    </resultMap>
+
+    <resultMap id="RoleMap" type="com.hdiata.pojo.dto.RoleDTO">
+        <id column="id" property="id"/>
+        <result column="role_name" property="roleName"/>
+        <result column="role_label" property="roleLabel"/>
+        <result column="is_disable" property="isDisable"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <collection property="resourceIdList" ofType="java.lang.Long">
+            <constructor>
+                <arg column="resource_id"/>
+            </constructor>
+        </collection>
+        <collection property="menuIdList" ofType="java.lang.Long">
+            <constructor>
+                <arg column="menu_id"/>
+            </constructor>
+        </collection>
+    </resultMap>
+
+</mapper>

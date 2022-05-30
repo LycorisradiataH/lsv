@@ -1,0 +1,48 @@
+{
+  "groups": [
+    {
+      "name": "upload.oss",
+      "type": "com.hdiata.config.OssConfigProperties",
+      "sourceType": "com.hdiata.config.OssConfigProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "upload.oss.access-key-id",
+      "type": "java.lang.String",
+      "description": "访问密钥id",
+      "sourceType": "com.hdiata.config.OssConfigProperties"
+    },
+    {
+      "name": "upload.oss.access-key-secret",
+      "type": "java.lang.String",
+      "description": "访问密钥密码",
+      "sourceType": "com.hdiata.config.OssConfigProperties"
+    },
+    {
+      "name": "upload.oss.bucket-name",
+      "type": "java.lang.String",
+      "description": "bucket名称",
+      "sourceType": "com.hdiata.config.OssConfigProperties"
+    },
+    {
+      "name": "upload.oss.endpoint",
+      "type": "java.lang.String",
+      "description": "终点",
+      "sourceType": "com.hdiata.config.OssConfigProperties"
+    },
+    {
+      "name": "upload.oss.region-id",
+      "type": "java.lang.String",
+      "description": "区域",
+      "sourceType": "com.hdiata.config.OssConfigProperties"
+    },
+    {
+      "name": "upload.oss.url",
+      "type": "java.lang.String",
+      "description": "oss域名",
+      "sourceType": "com.hdiata.config.OssConfigProperties"
+    }
+  ],
+  "hints": []
+}

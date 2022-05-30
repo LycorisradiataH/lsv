@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hdiata.mapper.CategoryMapper">
+
+    <select id="listCategoryDTO" resultType="com.hdiata.pojo.dto.CategoryDTO">
+        SELECT
+            c.id,
+            c.category_name,
+            COUNT( v.id ) video_count
+        FROM
+            category c
+                LEFT JOIN ( SELECT id, category_id FROM video WHERE is_delete = 0 ) v ON c.id = v.category_id
+        GROUP BY
+            c.id
+    </select>
+
+    <select id="listCategoryBack" resultType="com.hdiata.pojo.dto.CategoryBackDTO">
+        SELECT
+        c.id,
+        c.category_name,
+        count( v.id ) video_count,
+        c.gmt_create
+        FROM
+        category c
+        LEFT JOIN video v ON c.id = v.category_id
+        <where>
+            <if test = "condition.keywords != null" >
+                category_name LIKE concat('%',#{condition.keywords}, '%')
+            </if>
+        </where>
+        GROUP BY
+        c.id
+        ORDER BY
+        c.id DESC
+        LIMIT #{current}, #{size}
+    </select>
+
+</mapper>

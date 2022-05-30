@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hdiata.mapper.TagMapper">
+
+    <select id="listTagsBack" resultType="com.hdiata.pojo.dto.TagBackDTO">
+        SELECT
+        t.id,
+        tag_name,
+        COUNT( vt.video_id ) video_count,
+        t.gmt_create
+        FROM
+        tag t
+        LEFT JOIN video_tag vt ON t.id = vt.tag_id
+        <where>
+            <if test="condition.keywords != null">
+                tag_name like concat('%', #{condition.keywords}, '%')
+            </if>
+        </where>
+        GROUP BY
+        t.id
+        ORDER BY
+        t.id DESC
+        LIMIT #{current}, #{size}
+    </select>
+
+</mapper>

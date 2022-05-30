@@ -1,0 +1,27 @@
+server:
+  port: 8001
+
+spring:
+  profiles:
+    active: prod
+  application:
+    name: lsv-video-server
+  cloud:
+    nacos:
+      discovery:
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+        server-addr: ${lsv-video-server.nacos-url} # 配置 Nacos 地址
+      config:
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+        server-addr: 120.79.113.230:8848 # Nacos 作为配置中心地址
+        file-extension: yml # 指定yaml格式的配置
+        group: DEFAULT_GROUP  # 指定分组
+        # namespace:命名空间ID  默认为public
+        prefix: lsv
+      url: http://${lsv-video-server.nacos-url}
+
+# ${spring.application.name}-${spring.profile.active}.${spring.cloud.naces.config.file-extension}
+# ${spring.cloud.nacos.config.prefix}-${spring.profile.active}.${spring.cloud.naces.config.file-extension}
+# lsv-prod.yml

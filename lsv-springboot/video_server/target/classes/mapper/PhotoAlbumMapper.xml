@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hdiata.mapper.PhotoAlbumMapper">
+
+    <select id="listPhotoAlbumBacks" resultType="com.hdiata.pojo.dto.PhotoAlbumBackDTO">
+        SELECT
+        pa.id,
+        album_name,
+        album_desc,
+        album_cover,
+        COUNT( a.id ) AS photo_count,
+        STATUS
+        FROM
+        (
+        SELECT
+        id,
+        album_name,
+        album_desc,
+        album_cover,
+        STATUS
+        FROM
+        photo_album
+        WHERE
+        is_delete = 0
+        <if test = "condition.keywords != null">
+            AND album_name LIKE concat( '%', #{condition.keywords}, '%')
+        </if>
+        ORDER BY id DESC LIMIT #{current}, #{size}
+        ) pa
+        LEFT JOIN ( SELECT id, album_id FROM photo WHERE is_delete = 0 ) a ON pa.id = a.album_id
+        GROUP BY
+        pa.id
+    </select>
+
+</mapper>

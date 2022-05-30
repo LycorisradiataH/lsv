@@ -1,0 +1,83 @@
+{
+  "name": "lsv",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "animate.css": "^3.7.2",
+    "axios": "^0.21.1",
+    "clipboard": "^2.0.6",
+    "core-js": "^3.6.5",
+    "dayjs": "^1.10.6",
+    "easy-typer-js": "^2.1.0",
+    "element-ui": "^2.15.6",
+    "highlight.js": "^10.0.3",
+    "image-conversion": "^2.1.1",
+    "jquery": "^3.6.0",
+    "markdown-it": "^11.0.0",
+    "nprogress": "^0.2.0",
+    "recorderx": "^2.0.2",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "tocbot": "^4.12.2",
+    "vue": "^2.6.11",
+    "vue-avatar-cropper": "^1.0.6",
+    "vue-axios": "^2.1.5",
+    "vue-baberrage": "^3.2.4",
+    "vue-core-video-player": "^0.2.0",
+    "vue-cute-timeline": "^1.2.8",
+    "vue-image-swipe": "^1.0.5",
+    "vue-infinite-loading": "^2.4.5",
+    "vue-router": "^3.2.0",
+    "vue-social-share": "0.0.3",
+    "vuetify": "^2.6.0",
+    "vuex": "^3.4.0",
+    "vuex-persistedstate": "^3.0.1"
+  },
+  "devDependencies": {
+    "@mdi/font": "^6.5.95",
+    "@vue/cli-plugin-babel": "~4.5.13",
+    "@vue/cli-plugin-eslint": "~4.5.13",
+    "@vue/cli-plugin-router": "~4.5.13",
+    "@vue/cli-plugin-vuex": "~4.5.13",
+    "@vue/cli-service": "~4.5.13",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-component": "^1.1.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.12.0",
+    "sass": "~1.32.0",
+    "sass-loader": "^10.0.0",
+    "vue-cli-plugin-vuetify": "~2.4.8",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/standard"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

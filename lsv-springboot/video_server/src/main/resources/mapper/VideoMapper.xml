@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hdiata.mapper.VideoMapper">
+
+    <select id="listVideo" resultMap="videoHomeResultMap">
+        SELECT
+            v.id,
+            video_cover,
+            video_name,
+            video_url,
+            play_id,
+            v.gmt_create,
+            v.category_id,
+            category_name,
+            t.id AS tag_id,
+            t.tag_name
+        FROM
+            (
+                SELECT
+                    id,
+                    video_cover,
+                    video_name,
+                    video_url,
+                    play_id,
+                    gmt_create,
+                    category_id
+                FROM
+                    video
+                WHERE
+                    is_delete = 0
+                ORDER BY
+                    id ASC
+                LIMIT #{current} , #{size}
+
+            ) v
+                JOIN category c ON v.category_id = c.id
+                JOIN video_tag vt ON v.id = vt.video_id
+                JOIN tag t ON t.id = vt.tag_id
+        ORDER BY
+            v.id DESC
+    </select>
+
+    <select id="listVideosByCondition" resultMap="videoPreviewResultMap">
+        SELECT
+        v.id,
+        video_cover,
+        video_name,
+        play_id,
+        v.gmt_create,
+        v.category_id,
+        category_name,
+        t.id AS tag_id,
+        t.tag_name
+        FROM
+        (
+        SELECT
+        id,
+        video_cover,
+        video_name,
+        play_id,
+        gmt_create,
+        category_id
+        FROM
+        video
+        <where>
+            <if test="condition.categoryId != null">
+                category_id = #{condition.categoryId}
+            </if>
+            <if test="condition.tagId != null">
+                id IN (
+                SELECT
+                video_id
+                FROM
+                video_tag
+                WHERE
+                tag_id = #{condition.tagId})
+            </if>
+            <if test="condition.userId != null">
+                user_id = #{condition.userId}
+            </if>
+        </where>
+        AND is_delete = 0
+        ORDER BY id DESC
+        LIMIT #{current}, #{size}
+        ) v
+        JOIN category c ON v.category_id = c.id
+        JOIN video_tag vt ON v.id = vt.video_id
+        JOIN tag t ON t.id = vt.tag_id
+    </select>
+
+    <select id="countVideoBack" resultType="java.lang.Integer">
+        SELECT
+        count( DISTINCT v.id )
+        FROM
+        video v
+        LEFT JOIN video_tag vt ON vt.video_id = v.id
+        <where>
+            is_delete = #{condition.isDelete}
+            <if test="condition.keywords != null">
+                and video_name like concat('%', #{condition.keywords}, '%')
+            </if>
+            <if test="condition.categoryId != null">
+                and category_id = #{condition.categoryId}
+            </if>
+            <if test="condition.tagId != null">
+                and vt.tag_id = #{condition.tagId}
+            </if>
+        </where>
+    </select>
+
+    <select id="listVideoBack" resultMap="videoBackResultMap">
+        SELECT
+        v.id,
+        video_cover,
+        video_name,
+        v.is_delete,
+        v.gmt_create,
+        nickname,
+        category_name,
+        t.id tag_id,
+        t.tag_name
+        FROM
+        (
+        SELECT
+        id,
+        user_id,
+        video_cover,
+        video_name,
+        is_delete,
+        gmt_create,
+        category_id
+        FROM
+        video
+        <where>
+            is_delete = #{condition.isDelete}
+            <if test="condition.keywords != null">
+                and video_name like concat('%', #{condition.keywords}, '%')
+            </if>
+            <if test="condition.categoryId != null">
+                and category_id = #{condition.categoryId}
+            </if>
+            <if test="condition.tagId != null">
+                and id in
+                (
+                select
+                    video_id
+                from
+                    video_tag
+                where
+                    tag_id = #{condition.tagId}
+                )
+            </if>
+        </where>
+        ORDER BY
+        id DESC
+        LIMIT #{current}, #{size}
+
+        ) v
+        LEFT JOIN user_info ui ON ui.id = v.user_id
+        LEFT JOIN category c ON v.category_id = c.id
+        LEFT JOIN video_tag vt ON v.id = vt.video_id
+        LEFT JOIN tag t ON t.id = vt.tag_id
+        ORDER BY
+        v.id DESC
+    </select>
+
+    <select id="listRecommendVideos" resultType="com.hdiata.pojo.dto.VideoRecommendDTO">
+        SELECT
+            id,
+            video_name,
+            video_cover,
+            gmt_create
+        FROM
+            (
+                SELECT DISTINCT
+                    video_id
+                FROM
+                        ( SELECT tag_id FROM video_tag WHERE video_id = #{videoId} ) t
+                            JOIN video_tag t1 ON t.tag_id = t1.tag_id
+                WHERE
+                    video_id != #{videoId}
+            ) t2
+                JOIN video v ON t2.video_id = v.id
+        WHERE v.is_delete = 0
+        ORDER BY
+            id DESC
+        LIMIT 6
+    </select>
+
+    <select id="getArticleById" resultMap="videoResultMap">
+        SELECT
+            v.id,
+            video_cover,
+            video_name,
+            play_id,
+            v.gmt_create,
+            v.gmt_modified,
+            ui.id AS author_id,
+            nickname,
+            intro,
+            avatar,
+            v.category_id,
+            category_name,
+            t.id AS tag_id,
+            t.tag_name
+        FROM
+            video v
+                JOIN user_info ui ON v.user_id = ui.id
+                JOIN category c ON v.category_id = c.id
+                JOIN video_tag vt ON v.id = vt.video_id
+                JOIN tag t ON t.id = vt.tag_id
+        WHERE
+            v.id = #{videoId}
+          AND v.is_delete = 0
+    </select>
+
+    <resultMap id="videoHomeResultMap" type="com.hdiata.pojo.dto.VideoHomeDTO">
+        <id column="id" property="id"/>
+        <result column="video_cover" property="videoCover"/>
+        <result column="video_name" property="videoName"/>
+        <result column="video_url" property="videoUrl"/>
+        <result column="play_id" property="playId"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="category_name" property="categoryName"/>
+        <collection property="tagDTOList" ofType="com.hdiata.pojo.dto.TagDTO">
+            <id column="tag_id" property="id"/>
+            <result column="tag_name" property="tagName"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="videoPreviewResultMap" type="com.hdiata.pojo.dto.VideoPreviewDTO">
+        <id column="id" property="id"/>
+        <result column="video_cover" property="videoCover"/>
+        <result column="video_name" property="videoName"/>
+        <result column="play_id" property="playId"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="category_name" property="categoryName"/>
+        <collection property="tagDTOList" ofType="com.hdiata.pojo.dto.TagDTO">
+            <id column="tag_id" property="id"/>
+            <result column="tag_name" property="tagName"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="videoBackResultMap" type="com.hdiata.pojo.dto.VideoBackDTO">
+        <id column="id" property="id"/>
+        <result column="video_cover" property="videoCover"/>
+        <result column="video_name" property="videoName"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="nickname" property="author"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="category_name" property="categoryName"/>
+        <collection property="tagDTOList" ofType="com.hdiata.pojo.dto.TagDTO">
+            <id column="tag_id" property="id"/>
+            <result column="tag_name" property="tagName"/>
+        </collection>
+    </resultMap>
+
+    <resultMap id="videoResultMap" type="com.hdiata.pojo.dto.VideoDTO">
+        <id column="id" property="id"/>
+        <result column="video_cover" property="videoCover"/>
+        <result column="video_name" property="videoName"/>
+        <result column="play_id" property="playId"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="author_id" property="authorId"/>
+        <result column="nickname" property="nickname"/>
+        <result column="intro" property="intro"/>
+        <result column="avatar" property="avatar"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="category_name" property="categoryName"/>
+        <collection property="tagDTOList" ofType="com.hdiata.pojo.dto.TagDTO">
+            <id column="tag_id" property="id"/>
+            <result column="tag_name" property="tagName"/>
+        </collection>
+    </resultMap>
+
+</mapper>

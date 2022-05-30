@@ -72,6 +72,7 @@
     - 需要修改后端项目的 `bootstrap.yml` 配置文件中的 `spring.cloud.config.server-addr` 为自己的 Nacos 地址
     - OSS对象存储功能需要自行开启
     - 后台可以登录管理员账号 admin@qq.com，密码：123456，进行修改数据。
+    - 测试账号 test@qq.com，密码：1234567
 
 ```
 lsv
